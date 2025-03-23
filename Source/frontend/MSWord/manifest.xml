@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<OfficeApp xmlns = "http://schemas.microsoft.com/office/appforoffice/1.1"
+  xsi:type = "TaskPaneApp">
+  <Id>abdd0e6b-7830-4680-98c5-c38d86ff9c53</Id>
+  <Version>1.0</Version>
+  <ProviderName>Namronaldo08102004</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName>Translation Add-in</DisplayName>
+  <Description>Translate text inside Microsoft Word</Description>
+  <IconUrl>https://imgur.com/a/jQsWI5L</IconUrl>
+  <Hosts>
+    <Host Name = "Document"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue = "https://localhost:8000/index.html""/>
+  </DefaultSettings>
+</OfficeApp>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Add-in</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Thêm link tới styles.css -->
+</head>
+<body>
+    <div class="container">
+        <h1>Word Translator</h1>
+        <textarea id="inputText" placeholder="Enter text to translate..."></textarea><br>
+        <label>From:</label>
+        <select id="sourceLang">
+            <option value="en">English</option>
+            <option value="vi">Vietnamese</option>
+            <option value="fr">French</option>
+        </select>
+        <label>To:</label>
+        <select id="targetLang">
+            <option value="vi">Vietnamese</option>
+            <option value="en">English</option>
+            <option value="fr">French</option>
+        </select><br>
+        <button onclick="translateText()">Translate</button>
+        <p id="outputText"></p>
+    </div>
+</body>
+</html>
