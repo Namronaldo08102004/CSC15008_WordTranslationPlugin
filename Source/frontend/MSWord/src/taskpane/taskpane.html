@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Translation Add-in</title>
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Thêm link tới styles.css -->
+    <script src="taskpane.js"></script>
+    <link rel="stylesheet" href="taskpane.css"> <!-- Thêm link tới styles.css -->
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,7 @@
             <option value="en">English</option>
             <option value="fr">French</option>
         </select><br>
-        <button onclick="translateText()">Translate</button>
+        <button id="translate-btn" onclick="translate_text()">Translate</button>
         <p id="outputText"></p>
     </div>
 </body>
