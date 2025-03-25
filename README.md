@@ -12,6 +12,7 @@
   - [Setup environment](#setup-environment)
   - [How to use](#how-to-use)
   - [Demo](#demo)
+
 - [MS Word Add-in](#ms-word-add-in)
   - [Setup environment](#setup-environment-1)
   - [How to use](#how-to-use-1)
@@ -113,7 +114,7 @@ To stop the backend server, press `CTRL + C` in the terminal.
 
 This section provides a demonstration of how the backend works in action. You will see how the FastAPI server processes translation requests and returns results.
 
-[![Watch the video](Source/assets/backend_thumbnail.png)](Source/assets/backend_demo.mp4)
+[![Watch the video](Source/assets/backend_thumbnail.png)](https://github.com/user-attachments/assets/b6e5f90c-5c76-469a-9858-4920ec1d3fbd)
 
 ## MS Word Add-in
 
