@@ -189,7 +189,7 @@ During the startup process, you may see the following prompt `Allow localhost lo
 
 Once the development server starts, **Webpack** will compile and serve the add-in components. You should see logs indicating that the build is running successfully. After **Webpack** has finished loading, a **Word document with the Translator Add-in integrated** will automatically open in Microsoft Word. You can now use the **Translator Add-in** to select and translate text directly within Word.
 
-<u><b><i>Note</i></b></u>: Before using my Add-in Translator, you must select a text paragraph, and the number of words in your selection **does not exceed 2000 words**.
+<u>Note</u>: Before using my Add-in Translator, you must select a text paragraph, and the number of words in your selection **does not exceed 2000 words**.
 
 ### Demo
 
