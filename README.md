@@ -12,7 +12,6 @@
   - [Setup environment](#setup-environment)
   - [How to use](#how-to-use)
   - [Demo](#demo)
-
 - [MS Word Add-in](#ms-word-add-in)
   - [Setup environment](#setup-environment-1)
   - [How to use](#how-to-use-1)
@@ -91,7 +90,7 @@ Once the environment is set up, follow these steps to start and use the backend 
 Move into the `backend` directory where the FastAPI application is located:
 
 ```bash
-cd backend
+cd Source/backend
 ```
 
 2. **Start the FastAPI Server**
@@ -118,9 +117,79 @@ https://github.com/user-attachments/assets/b6e5f90c-5c76-469a-9858-4920ec1d3fbd
 
 ## MS Word Add-in
 
+The **MS Word Translator Add-in** is a tool I developed to seamlessly integrate translation capabilities into Microsoft Word. With this add-in, users can translate text directly within their documents without the need to switch between applications, making the workflow more efficient and convenient.
+
+In the following sections, I will guide you through setting up, using, and fully experiencing the features of the MS Word Translator Add-in.
+
 ### Setup environment
 
+To set up the **MS Word Translator Add-in**, follow these steps:
+
+1. **Install Node.js (If Not Installed)**
+
+Ensure that **Node.js** is installed on your system. If not, download and install it from [nodejs.org](https://nodejs.org/en). You can verify the installation by running:
+
+```bash
+node -v
+npm -v
+```
+
+2. **Install SSL Certificates for Office Add-ins**
+
+Microsoft Office requires SSL certificates for local add-in development. Install the necessary certificates using:
+
+```bash
+npm install -g office-addin-dev-certs
+office-addin-dev-certs install
+```
+
+This will generate and install self-signed certificates, allowing Word to recognize the add-in.
+
+3. **Generate a Unique Add-in ID**
+
+Each add-in requires a unique identifier. Generate one using PowerShell (Windows):
+
+```powershell
+[guid]::NewGuid()
+```
+
+This command will output a unique **GUID** (e.g., `73f8b755-7dac-4714-9986-3a46e67b5db7`).
+
+4. **Replace the Add-in ID in the Manifest File**
+
+After generating a unique **GUID**, navigate to the add-in’s source directory and open the `manifest.xml` file.
+
+```bash
+cd Source/frontend/MSWord
+```
+
+Then locate the `<Id>` tag and replace the existing ID with your newly generated GUID.
+
 ### How to use
+
+Once the setup is complete, follow these steps to run and use the **MS Word Translator Add-in**:
+
+1. **Navigate to the Add-in Directory**
+
+Move into the directory that contains the necessary components for loading the Word Add-in:
+
+```bash
+cd Source/frontend/MSWord
+```
+
+2. **Start the Add-in Development Server**
+
+Run the following command to start the local server:
+
+```bash
+npm start
+```
+
+During the startup process, you may see the following prompt `Allow localhost loopback for Microsoft Edge WebView? (Y/n)`. Select `n`, as this is not required for running the add-in.
+
+Once the development server starts, **Webpack** will compile and serve the add-in components. You should see logs indicating that the build is running successfully. After **Webpack** has finished loading, a **Word document with the Translator Add-in integrated** will automatically open in Microsoft Word. You can now use the **Translator Add-in** to select and translate text directly within Word.
+
+<u><b><i>Note</i></b></u>: Before using my Add-in Translator, you must select a text paragraph, and the number of words in your selection **does not exceed 2000 words**.
 
 ### Demo
 
@@ -131,27 +200,3 @@ https://github.com/user-attachments/assets/b6e5f90c-5c76-469a-9858-4920ec1d3fbd
 ### How to use
 
 ### Demo
-
-```python
-pip install -r requirements.txt
-```
-
-Tải về Node.js (*nếu chưa có*) https://nodejs.org/en
-
-Cài đặt `office-addin-dev-certs` để tạo chứng chỉ cho add-in
-
-```bash
-npm install -g office-addin-dev-certs
-office-addin-dev-certs install
-```
-
-Tạo 1 unique ID giúp nhận diện duy nhất add-in. Chạy lệnh này trong PowerShell (Windows):
-```powershell
-[guid]::NewGuid()
-```
-
-Sau khi chạy lệnh trên xong sẽ ra 1 id. Thực hiện:
-```bash
-cd Source/frontend/MSWord
-```
-Sau đó vào file 
