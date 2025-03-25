@@ -5,3 +5,4 @@
 - uvicorn basic_fastapi:app --reload
 - Hướng dẫn cách lấy API từ Gemini
 - https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/word-quickstart-yo?tabs=devkit
+- https://developers.google.com/apps-script/overview

@@ -1,4 +1,4 @@
-/* Đặt font chữ chung */
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -6,15 +6,8 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Tiêu đề chính */
-h1 {
-    color: #333;
-    font-size: 22px;
-}
-
-/* Nhóm các phần tử lại */
 .container {
-    max-width: 400px;
+    width: 89%;
     margin: auto;
     background: white;
     padding: 20px;
@@ -22,28 +15,11 @@ h1 {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ô nhập văn bản */
-textarea {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none; /* Không cho kéo giãn */
+h1 {
+    font-size: 22px;
+    color: #333;
 }
 
-/* Dropdown chọn ngôn ngữ */
-select {
-    width: 45%;
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin: 5px;
-}
-
-/* Nút Translate */
 button {
     width: 100%;
     padding: 10px;
@@ -56,40 +32,172 @@ button {
     transition: background 0.3s ease;
 }
 
-/* Hiệu ứng hover */
 button:hover {
     background-color: #005A9E;
 }
 
-/* Kết quả dịch */
-#outputText {
-    margin-top: 15px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-    background: #e8f5e9;
-    padding: 10px;
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 83.5%;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    align-self: flex-start;
+    padding-left: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
     border-radius: 4px;
-    animation: fadeIn 0.5s ease-in-out;
+    border: 1px solid #ccc;
+    margin-top: 5px;
 }
 
-/* Hiệu ứng xuất hiện */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Adjust modal positioning */
+#lang-modal {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 83.5%;
+    padding: 20px 15px;
 }
 
-@media (max-width: 400px) {
-    .container {
-        width: 90%;
-        padding: 10px;
-    }
+/* Translation Modal */
+.translation-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
 
-    select, button {
-        font-size: 14px;
-    }
+textarea {
+    width: 48%;
+    height: 120px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    background: #f9f9f9;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #0078D7;
+}
+
+/* Buttons inside modals */
+.modal button {
+    margin-top: 15px;
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal button:hover {
+    background-color: #005A9E;
+}
+
+/* Dropdown cho model */
+#modelName {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+#temperature {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#temperature::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #0078D7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#temperature::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #0078D7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#temperature::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    background: #0078D7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#temperatureValue {
+    font-weight: bold;
+}
+
+.error-popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 20px;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    width: 81.5%;
+}
+
+#error-popup button {
+    background-color: #d8000c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#error-popup button:hover {
+    background-color: #a80000;
 }

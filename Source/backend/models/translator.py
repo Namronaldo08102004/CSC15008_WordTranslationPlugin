@@ -15,6 +15,7 @@ def clean(text: str):
     return text
 
 def translate_text (text: str, source_lang: str, target_lang: str, model_name = "gemini-2.0-flash", temperature = 0.7):
+    text = '\n'.join([para for para in text.split('\r') if para != ""])
     prompt = f"""
     You are a highly skilled translator.
     I will provide you with a piece of text along with information about its source language and the target language into which it should be translated. Your task is to translate the given text into the requested target language.
@@ -35,12 +36,26 @@ def translate_text (text: str, source_lang: str, target_lang: str, model_name = 
     
     response = model.generate_content(prompt, generation_config = {"temperature": temperature})
     response = response.text
-    
-    extracted_text = None
+  
+    numParagraphs = 0
     for line in response.split("\n"):
         if line.startswith("T: "):
-            extracted_text = clean(line[len("T: ") : ])
             break
+        elif line.startswith("O: ") or numParagraphs > 0:
+            numParagraphs += 1    
+    
+    extracted_text = None
+    index = 0
+    for line in response.split("\n"):
+        if line.startswith("T: ") or index > 0:
+            if (index == 0):
+                extracted_text = clean(line[len("T: ") : ])
+            else:
+                extracted_text += '\n' + clean(line)
+                
+            index += 1
+            if (index == numParagraphs):
+                break
     
     LOGGER.log_model(model_name, temperature)
     try:
