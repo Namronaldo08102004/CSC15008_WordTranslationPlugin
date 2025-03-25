@@ -114,7 +114,7 @@ To stop the backend server, press `CTRL + C` in the terminal.
 
 This section provides a demonstration of how the backend works in action. You will see how the FastAPI server processes translation requests and returns results.
 
-[![Watch the video](Source/assets/backend_thumbnail.png)](https://github.com/user-attachments/assets/b6e5f90c-5c76-469a-9858-4920ec1d3fbd)
+https://github.com/user-attachments/assets/b6e5f90c-5c76-469a-9858-4920ec1d3fbd
 
 ## MS Word Add-in
 
