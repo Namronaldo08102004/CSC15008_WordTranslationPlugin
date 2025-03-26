@@ -1,6 +1,3 @@
-- https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/word-quickstart-yo?tabs=devkit
-- https://developers.google.com/apps-script/overview
-
 # AI-Powered Translation Plugin for Word Processing Applications 🔠
 
 <h1 align="left">
@@ -197,12 +194,65 @@ Once the development server starts, **Webpack** will compile and serve the add-i
 
 ### Demo
 
+This section provides a step-by-step demonstration of how the MS Word Translator Add-in works. You will see how to launch the add-in, select a text for translation, choose the source and target languages, and view the translated result directly within Microsoft Word.
+
 https://github.com/user-attachments/assets/bb8dddce-0419-4b15-84bf-47cfe198bd35
 
 ## Google Docs Add-on
 
+The **Google Docs Translator Add-on** is a tool I developed to integrate translation capabilities directly into Google Docs. With this add-on, users can translate selected text without leaving their document, improving workflow efficiency and eliminating the need to switch between different translation services.
+
+In the following sections, I will guide you through setting up, using, and making the most of the **Google Docs Translator Add-on**.
+
 ### Setup environment
+
+To set up the **Google Docs Translator Add-on**, follow these steps:
+
+1. **Open Google Docs and Select a Document**
+
+Start by opening **Google Docs** in your browser and selecting a document where you want to use the add-on.
+
+2. **Access Google Apps Script**
+
+In the **taskbar**, go to `Extensions → Apps Script`. This will open the **Google Apps Script editor**, where you can add and manage scripts for your document.
+
+3. **Create Required Files**
+
+Inside the Apps Script editor, create **three files**:
+
+- `Code.gs`
+
+- `LanguageSelector.html`
+
+- `TranslationReview.html`
+
+Then, navigate to the `GGDocs` folder inside the `frontend` directory of the project and copy the corresponding content from the files in `GGDocs` into their respective files in the **Apps Script editor**. Once done, go back to `Code.gs`, save the changes and click `Run` to execute the script.
+
+4. **Allow Permissions**
+
+After running the script, Google will prompt you to **grant permissions** for the script to access your document. If you see a warning message saying `Google hasn't verified this app`, click `Advanced` and select `Go to <Your App Name> (unsafe)`, then confirm the permissions to allow the script to function properly.
+
+5. **Set Up ngrok for Backend Connection**
+
+To expose your local backend to Google Apps Script, follow these steps:
+
+- Navigate to the root directory of your project and run `ngrok.exe`.
+
+- In the terminal, enter `ngrok http 8000`. Previously, you need an ngrok account to authenticate and access your tunnel, visit [ngrok's official website](https://ngrok.com/) to create an account if you haven’t already.
+
+6. **Update API URL in Code.gs**
+
+After running ngrok, look for the **Forwarding URL** that ends in `.app`, for example `https://1efe-2001-ee0-4f05-b720-b4a1-d8b9-e76b-b439.ngrok-free.app`, copy it and go back to the `Code.gs` file in the **Google App Scripts**, locate the function `callTranslationAPI`, then replace the `apiUrl` variable with the ngrok URL followed by `/translate`:
+
+```javascript
+let apiUrl = "https://1efe-2001-ee0-4f05-b720-b4a1-d8b9-e76b-b439.ngrok-free.app/translate";
+```
+
+Finally, save the changes and click `Run` again to apply the update.
 
 ### How to use
 
+Once the setup is complete, you will see a `Translator` option appear in the taskbar of Google Docs. To use the add-on, highlight any text in your document that you want to translate (must not exceed 2000 words), click `Translator → Translate Selection` and the add-on will process the selected text and display the translated result within the document. Your **Google Docs Translator Add-on** is now fully functional, allowing you to translate text seamlessly without leaving the document!
+
 ### Demo
+
