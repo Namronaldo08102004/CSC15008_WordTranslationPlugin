@@ -190,7 +190,7 @@ Once the development server starts, **Webpack** will compile and serve the add-i
 
 - Before using my Add-in Translator, you must select a text paragraph, and the number of words in your selection **does not exceed 2000 words**.
 
-- Remember to create a new terminal window and run the **backend** app.
+- Remember to create a new terminal window and run the **backend** app. You can reload **backend** if there are any occurs related to the request from the add-in through HTTP.
 
 ### Demo
 
@@ -253,6 +253,8 @@ Finally, save the changes and click `Run` again to apply the update.
 ### How to use
 
 Once the setup is complete, you will see a `Translator` option appear in the taskbar of Google Docs. To use the add-on, highlight any text in your document that you want to translate (must not exceed 2000 words), click `Translator → Translate Selection` and the add-on will process the selected text and display the translated result within the document. Your **Google Docs Translator Add-on** is now fully functional, allowing you to translate text seamlessly without leaving the document!
+
+Remember to create a new terminal window and run the **backend** app before using the add-on. You can reload **backend** if there are any occurs related to the request from the add-in through HTTP.
 
 ### Demo
 

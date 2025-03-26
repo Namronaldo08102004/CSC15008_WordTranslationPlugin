@@ -55,8 +55,8 @@ function processTranslation(sourceLang, targetLang, modelName, temperature) {
     }
 
     let originalText = selection.getRangeElements()
-        .map(element => element.getElement().asText ? element.getElement().asText().getText() : '')
-        .join('');
+      .map(element => element.getElement().asText ? element.getElement().asText().getText() : '')
+      .join('\n');
 
     let translatedText = callTranslationAPI(originalText, sourceLang, targetLang, modelName, temperature);
 
@@ -83,22 +83,30 @@ function applyTranslation(translatedText) {
     }
 
     let elements = selection.getRangeElements();
-    let translatedTexts = [translatedText];
+    
+    for (let i = 0; i < elements.length; i++) {
+        let element = elements[i].getElement();
+        
+        if (element.getType() === DocumentApp.ElementType.PARAGRAPH) {
+            let paragraph = element.asParagraph();
+            let textElement = paragraph.editAsText();
 
-    if (translatedTexts.length > 0) {
-        for (let i = 0; i < elements.length; i++) {
-            let element = elements[i].getElement();
-            if (element.editAsText) {
-                element.asText().setText(translatedTexts[i]);
-            }
+            // Lấy phần đầu của đoạn văn (giữ lại khoảng trắng hoặc tab nếu có)
+            let originalText = textElement.getText();
+            let leadingSpaces = originalText.match(/^(\s*)/)[0]; // Lấy các ký tự khoảng trắng đầu tiên
+
+            // Tách nội dung dịch theo dòng
+            let translatedLines = translatedText.split('\n');
+            let translatedParagraph = translatedLines[i] ? leadingSpaces + translatedLines[i] : '';
+
+            // Ghi đè nội dung mà vẫn giữ dấu tab
+            textElement.setText(translatedParagraph);
         }
-    } else {
-        DocumentApp.getUi().alert("No valid text found in the selection.");
     }
 }
 
 function callTranslationAPI(text, sourceLang, targetLang, modelName, temperature) {
-    let apiUrl = "https://6b19-2001-ee0-4f05-b720-f826-a664-a839-8352.ngrok-free.app/translate";
+    let apiUrl = "https://1efe-2001-ee0-4f05-b720-b4a1-d8b9-e76b-b439.ngrok-free.app/translate";
     let payload = JSON.stringify({
         text: text,
         source_lang: sourceLang,

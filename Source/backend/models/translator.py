@@ -51,6 +51,8 @@ def translate_text (text: str, source_lang: str, target_lang: str, model_name = 
             if (index == 0):
                 extracted_text = clean(line[len("T: ") : ])
             else:
+                if (line == "---"):
+                    break
                 extracted_text += '\n' + clean(line)
                 
             index += 1
