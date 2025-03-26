@@ -197,6 +197,8 @@ Once the development server starts, **Webpack** will compile and serve the add-i
 
 ### Demo
 
+https://github.com/user-attachments/assets/bb8dddce-0419-4b15-84bf-47cfe198bd35
+
 ## Google Docs Add-on
 
 ### Setup environment
