@@ -261,3 +261,5 @@ Remember to create a new terminal window and run the **backend** app before usin
 This section provides a demonstration of how the Google Docs Translator Add-on works in action. You'll see how to select text, trigger the translation process, and review the translated output within your document.
 
 https://github.com/user-attachments/assets/0b40471c-1290-4012-9098-c062c82c57f2
+
+# [🏠 Back to top](#ai-powered-translation-plugin-for-word-processing-applications-)
