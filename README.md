@@ -142,7 +142,7 @@ office-addin-dev-certs install
 
 This will generate and install self-signed certificates, allowing Word to recognize the add-in.
 
-3. **Generate a Unique Add-in ID**
+3. **Generate a Unique Add-in ID and replace it in the Manifest File**
 
 Each add-in requires a unique identifier. Generate one using PowerShell (Windows):
 
@@ -150,17 +150,21 @@ Each add-in requires a unique identifier. Generate one using PowerShell (Windows
 [guid]::NewGuid()
 ```
 
-This command will output a unique **GUID** (e.g., `73f8b755-7dac-4714-9986-3a46e67b5db7`).
+This command will output a unique **GUID** (e.g., `73f8b755-7dac-4714-9986-3a46e67b5db7`). After generating a unique **GUID**, navigate to the `MSWord` folder which is the add-in’s source directory and open the `manifest.xml` file and locate the `<Id>` tag and replace the existing ID with your newly generated GUID.
 
-4. **Replace the Add-in ID in the Manifest File**
+4. **Install Dependencies**
 
-After generating a unique **GUID**, navigate to the add-in’s source directory and open the `manifest.xml` file.
+First, navigate to the `MSWord` directory inside the `frontend` folder:
 
 ```bash
 cd Source/frontend/MSWord
 ```
 
-Then locate the `<Id>` tag and replace the existing ID with your newly generated GUID.
+Then, install the `node_modules` folder, which stores dependencies that the add-in relies on, through running:
+
+```bash
+npm install --color=always
+```
 
 ### How to use
 
@@ -236,7 +240,7 @@ After running the script, Google will prompt you to **grant permissions** for th
 
 To expose your local backend to Google Apps Script, follow these steps:
 
-- Navigate to the root directory of your project and run `ngrok.exe`.
+- Access to [Download ngrok](https://ngrok.com/downloads/windows?tab=download) and download the zip file including `ngrok.exe` file. Open this file and a terminal screen will appear. (*Note: This ZIP file may be blocked by antivirus software components on your computer (e.g., Windows Defender). Therefore, please disable these programs before downloading.*)
 
 - In the terminal, enter `ngrok http 8000`. Previously, you need an ngrok account to authenticate and access your tunnel, visit [ngrok's official website](https://ngrok.com/) to create an account if you haven’t already.
 
